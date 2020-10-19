@@ -19,22 +19,23 @@ int main(){
   s_vector = &s_member[0];
   bool stop = false;
   int i = 0;
-  char input[30];
+  char input[30]; 
   while (stop == false){
-    cout << "top" << endl;
+    cout << "Please enter ADD, PRINT, or DELETE. If you would like to close the application enter QUIT" << endl; 
     cin >> input;
     if(strcmp(input,"ADD")==0){
-      cout << "1" << endl;
+      cout << "Please enter the first name of the student" << endl;
       s_member[i] = new student;
       
       cin >> s_member[i]->name;
+      cout << "Please enter the Last name of the student" << endl;
       cin >> s_member[i]->last_name;
+      cout << "Please enter the ID of the student" << endl;
       cin >> s_member[i]->id;
+      cout << "Please enter the Gpa of the student" << endl;
       cin >> s_member[i]->gpa;
-      cout << s_member[i]->name << " " << s_member[i]->last_name << ", " << s_member[i]->id << ", " << s_member[i]->gpa << endl;
       i++;
-      cout << "exit" << endl;
-    }
+      }
     else if(strcmp(input,"DELETE")==0){
       cout << "Please enter student id of student you would like to delete" << endl;
       int temp = 0;
@@ -49,15 +50,14 @@ int main(){
       
     }
     else if(strcmp(input,"PRINT")==0){
-      cout << "3" << endl;
-      cout << i << endl;
       for(int x = 0;x<i;x++){
-	
 	if(s_member[x]!= NULL){
-	  cout << s_member[x]->name << " " << s_member[x]->last_name << ", " << s_member[x]->id << ", " << s_member[x]->gpa << endl;
-	}
-	else{
-	  cout << "member is null" << endl;
+	  cout << s_member[x]->name << " " << s_member[x]->last_name << ", " << s_member[x]->id << ", ";
+	  cout.setf(ios::showpoint);
+	  cout.precision(3);
+	  cout << s_member[x]->gpa << endl;
+	  cout.precision(100000000);
+	  cout.unsetf(ios::showpoint);
 	}
       }
     }
@@ -66,6 +66,9 @@ int main(){
       for (int x = 0;x<i; x++){
 	free(s_member[x]);
       }
+    }
+    else{
+      cout << "That was not a valid command" << endl; 
     }
   }
 }
