@@ -36,7 +36,17 @@ int main(){
       cout << "exit" << endl;
     }
     else if(strcmp(input,"DELETE")==0){
-      cout << "2" << endl;
+      cout << "Please enter student id of student you would like to delete" << endl;
+      int temp = 0;
+      cin >> temp;
+      for (int x = 0; x<i; x++){
+	if(temp == s_member[x]->id){
+	  free(s_member[x]);
+	  s_member[x]=NULL;
+	}
+	
+	}
+      
     }
     else if(strcmp(input,"PRINT")==0){
       cout << "3" << endl;
